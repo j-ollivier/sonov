@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+    <body>
+        {% include "banner.html" %}
+        <div id="main_container" class="flex_horiz">
+            {% for item in content %}
+            <div class="section_item">
+                <a href="{{item.colorbox_link}}" class="{{item.source_site}}" title="{{item.short_desc}}">
+                    <img class="round_img shadowed" src="/{{item.thumbnail}}">
+                    <div class="caption">
+                        <h1>Écouter</h1>
+                    </div>
+                </a>
+                <h3>{{item.title}}</h3>
+                <div class="post_info">
+                {{item.created_date.day}} - {{item.created_date.month}} - {{item.created_date.year}}<br>
+                {% for tag in item.tags.all %}<a class="music_tag_dark" href="#">{{tag.title}}</a> {% endfor %}
+                </div>
+            </div> <!-- end section item  -->
+            {% endfor %}
+        </div> <!-- end main_container -->
+    </body>
+    <footer>
+    </footer>
+</html>
+{% endblock %}

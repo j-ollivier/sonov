@@ -6,6 +6,24 @@ __pycache__/
 # C extensions
 *.so
 
+# django spk
+settings.py
+*.pyc
+*.egg-info
+*.pot
+*.py[co]
+.tox/
+__pycache__
+MANIFEST
+dist/
+docs/_build/
+docs/locale/
+node_modules/
+tests/coverage_html/
+tests/.coverage
+build/
+tests/report/
+
 # Distribution / packaging
 .Python
 env/
