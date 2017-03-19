@@ -7,7 +7,7 @@
 
             <div id="article_container">
                 <h1 id="article_title" style="text-align: center">{{article.title}}</h1>
-                <p class="post_info">Posté le {{article.created_date.day}} - {{article.created_date.month}} - {{article.created_date.year}}. Tags : {% for tag in article.tags.all %}<a class="music_tag_dark" href="#">{{tag.title}}</a> {% endfor %}</p>
+                <p class="post_info">Posté le {{article.created_date.day}} - {{article.created_date.month}} - {{article.created_date.year}}. Tags : {% for tag in article.tags.all %}<a class="music_tag_dark" href="/sbytag/{{tag.pk}}">{{tag.title}}</a> {% endfor %}</p>
                 <p class="article_text">{{article.corpus | safe | linebreaksbr}}</p>
             </div> <!-- end article container -->
         </div> <!-- end main_container -->
