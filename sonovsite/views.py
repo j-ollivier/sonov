@@ -9,13 +9,13 @@ def FrontPage(request):
         Landing page for the whole blog.
     '''
     # Hit the db 3 times (hurr) to get 3 lists of 3 last items posted
-    last_sons= [i for i in Son.objects.select_related().filter(is_visible=True)][:3]
+    last_sons= [i for i in Son.objects.select_related().filter(is_visible=True).order_by('created_date').reverse()][:3]
     for i in last_sons:
         i.type= 'son'
-    last_articles= [i for i in Article.objects.select_related().filter(is_visible=True)][:3]
+    last_articles= [i for i in Article.objects.select_related().filter(is_visible=True).order_by('created_date').reverse()][:3]
     for i in last_articles:
         i.type= 'article'
-    last_galeries= [i for i in Galery.objects.select_related().filter(is_visible=True)][:3]
+    last_galeries= [i for i in Galery.objects.select_related().filter(is_visible=True).order_by('created_date').reverse()][:3]
     for i in last_galeries:
         i.type= 'galery'
     # Merge the lists and order them by posted date
