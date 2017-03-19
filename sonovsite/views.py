@@ -78,7 +78,7 @@ def SonsIndex(request):
     '''
         Index of sounds.
     '''
-    sons= Son.objects.select_related().all().order_by('created_date').reverse()
+    sons= Son.objects.select_related().filter(is_visible= True).order_by('created_date').reverse()
     for son in sons:
         son.colorbox_link= son.colorbox_link()
     context={
