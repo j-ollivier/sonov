@@ -56,7 +56,6 @@ def FrontPage(request):
         context={
             'content': sorted_items,
             'form': SearchAll(),
-            'search_visible': True,
         }
         template = loader.get_template('frontpage.html')
         return HttpResponse(template.render(context, request))
@@ -109,6 +108,7 @@ def ArticleIndex(request):
     context={
         'articles': Article.objects.filter(is_visible=True),
         'all_tags': Tag.objects.all(),
+        'form': SearchAll(),
     }
     template = loader.get_template('article_index.html')
     return HttpResponse(template.render(context, request))
@@ -121,6 +121,7 @@ def ArticleView(request, article_slug):
     context={
         'article': Article.objects.select_related().get(
             slug= article_slug),
+        'form': SearchAll(),
     }
     template = loader.get_template('article_view.html')
     return HttpResponse(template.render(context, request))
@@ -133,6 +134,7 @@ def GaleryIndex(request):
     context={
         'galeries': Galery.objects.select_related().filter(
             is_visible=True),
+        'form': SearchAll(),
     }
     template = loader.get_template('galery_index.html')
     return HttpResponse(template.render(context, request))
@@ -144,6 +146,7 @@ def GaleryView(request, galery_pk):
     '''
     context={
         'galery': Galery.objects.select_related().get(pk=galery_pk),
+        'form': SearchAll(),
     }
     template = loader.get_template('galery_view.html')
     return HttpResponse(template.render(context, request))
@@ -159,6 +162,7 @@ def SonsIndex(request):
         son.colorbox_link= son.colorbox_link()
     context={
         'sons': sons,
+        'form': SearchAll(),
     }
     template = loader.get_template('sons_index.html')
     return HttpResponse(template.render(context, request))
@@ -192,8 +196,20 @@ def SearchByTag(request, tag_searched):
         'created_date'), reverse=True)
     context={
         'tag_searched': tag_searched,
-        'content': sorted_items
+        'content': sorted_items,
+        'form': SearchAll(),
         # 'galeries': galeries,
     }
     template = loader.get_template('search_by_tag.html')
+    return HttpResponse(template.render(context, request))
+
+#####################################################################
+def SiteInfo(request):
+    '''
+        View the website informations and random facts.
+    '''
+    context={
+        'form': SearchAll(),
+    }
+    template = loader.get_template('site_info.html')
     return HttpResponse(template.render(context, request))

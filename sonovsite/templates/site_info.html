@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <body>
+{% include "banner.html" %}
+        <div id="main_container" class="flex_horiz">
+
+            <div id="article_container">
+                <h1 id="article_title" style="text-align: center">Qui sommes nous ?</h1>
+                <p id="article_title" style="text-align: center">(Rédation en cours)</p>
+				<h2 id="article_title" style="text-align: center">Généralités</h2>
+				<p class="article_text">Le site Sono-V est le fruit des efforts de codeur/webdesigner du dimanche de titou, et de trouveur génial de sons électro qui dépotent, Sammy. Il est créé en open-source sous licence Apache 2.0 et les fichiers non confidentiels sont sur GitHub.</p>
+                <p class="article_text">Notre motivation, c'était d'avoir notre petit univers bien beau dans lequel mettre notre collection de sons et d'articles, sans dépendre de plateformes sociales. Ensuite, libre aux gens de jeter un coup d'oeil quand ils passent. Je ne sais pas pour Sammy, mais ce site sans likes me permet aussi de partager sans attendre de retour, chose qui est impossible dans nos réseaux sociaux, qu'on le veuille ou non...</p>
+                <p class="article_text">Ce site ne comporte pas de référencement, ni de publicités, ni de contenu sponsorisé : vous pouvez donc garder votre adblocker, osef.</p>
+                <h2 id="article_title" style="text-align: center">Informations techniques</h2>
+                <p class="article_text">La machine qui supporte le serveur est un ordinateur portable de 2005 que j’ai eu pour mes études. Il fonctionnait sous XP et le matériel ne pouvait pas accueillir des OS plus récents. Je l’ai exhumé et installé Ubuntu Serveur 14.04 (upgradé au 16.04 aujourd’hui). Il est dans mon salon et fait du bruit.</p>
+                <p class="article_text">Les deux gros outils que j'ai utilisés pour monter ce site sont Django et postgres. Je les conseille pour ceux qui veulent mettre les mains profondément dans le cambouis.</p>
+            </div> <!-- end article container -->
+        </div> <!-- end main_container -->
+    </body>
+{% include "footer.html" %}
+{% endblock %}

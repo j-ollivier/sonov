@@ -31,4 +31,6 @@ urlpatterns = [
     url(r'^sons/', views.SonsIndex),
     # search by tag
     url(r'^sbytag/(?P<tag_searched>\d+)', views.SearchByTag),
+    # site info
+    url(r'^info/', views.SiteInfo),
     ]

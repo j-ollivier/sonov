@@ -4,6 +4,6 @@
         <div><h3><a class="navbar_link" href="/sons">Sons</a></h3></div>
         <div><h3><a class="navbar_link" href="/articles">Articles</a></h3></div>
         <div><h3><a class="navbar_link" href="/galeries">Galeries</a></h3></div>
-        {% if search_visible %}<form method='post'>{% csrf_token %}{{ form }}<input class="input_fp" type='image' src="/static/sonovsite/glyphicons/glyphicons-28-search.png" /></form>{% endif %}
+        <form method='post'>{% csrf_token %}{{ form }}<input class="input_fp" type='image' src="/static/sonovsite/glyphicons/glyphicons-28-search.png" /></form>
     </div>
 </div>
