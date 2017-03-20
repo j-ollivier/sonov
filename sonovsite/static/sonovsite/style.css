@@ -111,6 +111,45 @@ iframe{
     margin-bottom: 20px;
 }
 
+footer{
+    width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.hr_fp{
+    width: 900px;
+    margin: 0 auto;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(255, 255, 255, 0.75), rgba(0, 0, 0, 0));
+}
+
+.input_fp{
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+#id_entry{
+    height: 15px;
+    padding: 6px 12px;
+    color: #555;
+    vertical-align: middle;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
 #banner{
     background-color: #272822;
     width: 100%;
@@ -148,6 +187,11 @@ iframe{
     align-items: center;
 }
 
+#top_container{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 900px;
+}
 #main_container{
     width: 900px;
     margin: 0 auto;

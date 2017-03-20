@@ -12,9 +12,9 @@ class Article(models.Model):
     uid= models.AutoField(primary_key = True , db_index = True)
     slug= models.SlugField()
     title= models.CharField(max_length = 255)
-    corpus = models.TextField(blank=True, null=True)
+    corpus = models.TextField()
     short_desc= models.CharField(max_length = 78, blank=True, null=True)
-    thumbnail= models.ImageField(upload_to='static/sonovsite/article', blank=True, null=True)
+    thumbnail= models.ImageField(upload_to='static/sonovsite/article', )
     is_visible= models.BooleanField(default= False)
     tags= models.ManyToManyField('Tag', related_name='tags', blank=True)
     created_date = models.DateTimeField(default=timezone.now)
@@ -85,7 +85,7 @@ class Image(models.Model):
 #####################################################################
 class Tag(models.Model):
     uid= models.AutoField(primary_key = True , db_index = True)
-    title= models.CharField(max_length = 100)
+    title= models.CharField(max_length = 100, unique=True)
     # Methods
     def __str__(self):
         return str(self.title)
