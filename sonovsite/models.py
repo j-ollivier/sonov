@@ -32,7 +32,7 @@ class Son(models.Model):
     # choice vars 
     video_source_choices=(
         ('youtube', 'youtube'),
-        ('youndcloud', 'soundcloud'),
+        ('soundcloud', 'soundcloud'),
         ('vimeo', 'vimeo'),
         ('other', 'iframe'),
     )
@@ -55,9 +55,11 @@ class Son(models.Model):
         return str(self.title)
     def colorbox_link(self):
         if self.source_site== 'soundcloud':
-            complete_link= 'https://soundcloud.com/{}'.format(self.source_id_string)
+            complete_link= '/soundcloud_iframe/{}'.format(self.source_id_string)
         elif self.source_site== 'youtube':
             complete_link= 'https://www.youtube.com/embed/{}?t={}s'.format(self.source_id_string, self.start_video_at)
+        elif self.source_site== 'vimeo':
+            complete_link= 'https://player.vimeo.com/video/{}'.format(self.source_id_string)
         return complete_link
 
 #####################################################################

@@ -33,4 +33,5 @@ urlpatterns = [
     url(r'^sbytag/(?P<tag_searched>\d+)', views.SearchByTag),
     # site info
     url(r'^info/', views.SiteInfo),
+    url(r'^soundcloud_iframe/(?P<soundcloud_id>\d+)', views.SoundcloudIframe),
     ]

@@ -213,3 +213,14 @@ def SiteInfo(request):
     }
     template = loader.get_template('site_info.html')
     return HttpResponse(template.render(context, request))
+
+#####################################################################
+def SoundcloudIframe(request, soundcloud_id):
+    '''
+        Test for embedding soundcloud within colorbox
+    '''
+    context={
+        'soundcloud_id': soundcloud_id,
+    }
+    template = loader.get_template('soundcloud_iframe.html')
+    return HttpResponse(template.render(context, request))
