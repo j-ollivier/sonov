@@ -77,17 +77,17 @@ def FrontPage(request):
         # Hit the db 3 times (hurr) to get 3 lists of 3 last items posted
         last_sons= [i for i in Son.objects.select_related(
             ).filter(is_visible=True).order_by(
-            'created_date').reverse()][:5]
+            'created_date').reverse()]
         for i in last_sons:
             i.type= 'son'
         last_articles= [i for i in Article.objects.select_related(
             ).filter(is_visible=True).order_by(
-            'created_date').reverse()][:5]
+            'created_date').reverse()]
         for i in last_articles:
             i.type= 'article'
         last_galeries= [i for i in Galery.objects.select_related(
             ).filter(is_visible=True).order_by(
-            'created_date').reverse()][:5]
+            'created_date').reverse()]
         for i in last_galeries:
             i.type= 'galery'
         # Merge the lists and order them by posted date
@@ -96,7 +96,7 @@ def FrontPage(request):
             merged_items, 
             key=operator.attrgetter('created_date'), 
             reverse=True
-            )
+            )[:12]
 
         context={
             'content': sorted_items,
