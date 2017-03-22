@@ -1,4 +1,4 @@
 from django import forms
 
 class SearchAll(forms.Form):
-    entry = forms.CharField(label='')
+    search = forms.CharField(label='')
