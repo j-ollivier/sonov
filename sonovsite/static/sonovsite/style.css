@@ -41,7 +41,7 @@
     blockquote{
         font-size: 18px;
     }
-
+    #cboxTitle{white-space: nowrap; position:absolute; bottom:-25px; left:0; text-align:center; width:100%; font-weight:bold; color:#7C7C7C;}
 }
 
 /*MEDIA QUERIES FOR SMALL SCREENS ---------------------------------*/
@@ -72,6 +72,7 @@
     blockquote{
         font-size: 1.3em;
     }
+    #cboxTitle{white-space: nowrap; font-size: 0.9em; text-align:center; width:100%; font-weight:bold; color:#7C7C7C;}
 }
 
 
@@ -216,11 +217,12 @@ footer h2 {
 }
 
 #banner_item_container{
-    width: 1000px;
+    width: 900px;
     margin: 0 auto;
     display: flex;
     flex-flow: row;
     align-items: center;
+    justify-content: space-around;
 }
 
 .banner_item{
@@ -274,6 +276,12 @@ footer h2 {
 #article_title{
     color: #272822;
     text-shadow: 1px 1px 1px #000
+}
+
+.article_subtitle{
+    color: #272822;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
 }
 
 .post_container{

@@ -48,7 +48,7 @@ class Son(models.Model):
     is_visible= models.BooleanField(default=False)
     created_date = models.DateTimeField(default=timezone.now)
     modified_date = models.DateTimeField(auto_now=True)
-    short_desc= models.CharField(max_length = 78, blank=True, null=True)
+    short_desc= models.CharField(max_length = 72, blank=True, null=True)
     posted_by= models.ForeignKey(User, related_name= 'son_author')
     # Methods
     def __str__(self):
