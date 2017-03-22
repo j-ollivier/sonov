@@ -24,22 +24,55 @@
         background-color: #0e1316;
         overflow-y: scroll;
     }
+
+    #banner{
+        height: 60px;
+    }
+
+    #banner_item_container{
+        height: 60px;
+    }
+
+    p{
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    blockquote{
+        font-size: 18px;
+    }
+    #cboxTitle{white-space: nowrap; position:absolute; bottom:-25px; left:0; text-align:center; width:100%; font-weight:bold; color:#7C7C7C;}
 }
 
 /*MEDIA QUERIES FOR SMALL SCREENS ---------------------------------*/
 @media (max-width: 1200px) {
 
     html { 
-        background: url('/static/sonovsite/mobile_bg.png')
-    }
+        background: url('/static/sonovsite/mobile_bg.jpg') center fixed;
 
-    #main_container{
-        width: 100%;
     }
 
     *{
         font-size: 1.1em;
     }
+
+    #banner{
+        height: 80px;
+    }
+
+    #banner_item_container{
+        height: 80px;
+    }
+
+    p{
+        font-size: 1.2em;
+        text-align: justify;
+    }
+
+    blockquote{
+        font-size: 1.3em;
+    }
+    #cboxTitle{white-space: nowrap; font-size: 0.9em; text-align:center; width:100%; font-weight:bold; color:#7C7C7C;}
 }
 
 
@@ -55,7 +88,6 @@ body{
 
 blockquote {
     font-family: Georgia, serif;
-    font-size: 18px;
     font-style: italic;
     width: 500px;
     margin: 0.25em 40px;
@@ -102,12 +134,6 @@ a, a:active, a:focus {
     outline: none;
 }
 
-p{
-    font-size: 16px;
-    text-align: justify;
-    text-justify: inter-word;
-}
-
 iframe{
     display: block;
     margin: 10px auto;
@@ -126,6 +152,11 @@ footer{
 footer h2 {
     margin-top: 30px;
     margin-bottom: 30px;
+}
+
+#main_container{
+    width: 900px;
+    margin: 0 auto;
 }
 
 .hr_fp{
@@ -161,7 +192,6 @@ footer h2 {
 #banner{
     background-color: #272822;
     width: 100%;
-    height: 60px;
 }
 
 .navbar_link{
@@ -187,22 +217,23 @@ footer h2 {
 }
 
 #banner_item_container{
-    width: 1000px;
-    height: 60px;
+    width: 900px;
     margin: 0 auto;
     display: flex;
     flex-flow: row;
     align-items: center;
+    justify-content: space-around;
+}
+
+.banner_item{
+    display: flex;
+    flex-shrink: 1;
 }
 
 #top_container{
     margin: 0 auto;
     margin-top: 20px;
     width: 900px;
-}
-#main_container{
-    width: 900px;
-    margin: 0 auto;
 }
 
 .flex_horiz{
@@ -245,6 +276,12 @@ footer h2 {
 #article_title{
     color: #272822;
     text-shadow: 1px 1px 1px #000
+}
+
+.article_subtitle{
+    color: #272822;
+    text-shadow: 1px 1px 1px #000;
+    text-align: center;
 }
 
 .post_container{
@@ -364,3 +401,79 @@ a:hover .caption {
     -moz-transition: all 0.8s linear;
     transition: all 0.8s linear;
 }​
+
+
+/* Search bar */
+/* https://codepen.io/912lab/pen/LsplC */
+
+input {
+    outline: none;
+}
+input[type=text] {
+    -webkit-appearance: textfield;
+    -webkit-box-sizing: content-box;
+    font-family: inherit;
+    font-size: 100%;
+}
+input::-webkit-search-decoration,
+input::-webkit-search-cancel-button {
+    display: none; 
+}
+
+
+input[type=text] {
+    background: #272822 url('/static/sonovsite/search_white.png') no-repeat 1px center;
+    border: solid 1px #272822;
+    padding: 9px 10px 9px 32px;
+    width: 55px;
+    
+    -webkit-border-radius: 10em;
+    -moz-border-radius: 10em;
+    border-radius: 10em;
+    
+    -webkit-transition: all .5s;
+    -moz-transition: all .5s;
+    transition: all .5s;
+}
+input[type=text]:focus {
+    width: 130px;
+    background-color: #fff;
+    border-color: #66CC75;
+    outline-width: 0;
+    
+    -webkit-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    -moz-box-shadow: 0 0 5px rgba(109,207,246,.5);
+    box-shadow: 0 0 5px rgba(109,207,246,.5);
+}
+
+
+input:-moz-placeholder {
+    color: #999;
+}
+input::-webkit-input-placeholder {
+    color: #999;
+}
+
+/* Demo 2 */
+#search_all input[type=text] {
+    width: 15px;
+    padding-left: 10px;
+    color: transparent;
+    cursor: pointer;
+}
+#search_all input[type=text]:hover {
+    background-color: #fff;
+}
+#search_all input[type=text]:focus {
+    width: 130px;
+    padding-left: 32px;
+    color: #000;
+    background-color: #fff;
+    cursor: auto;
+}
+#search_all input:-moz-placeholder {
+    color: transparent;
+}
+#search_all input::-webkit-input-placeholder {
+    color: transparent;
+}

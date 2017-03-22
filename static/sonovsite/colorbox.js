@@ -40,7 +40,7 @@
 		right: false,
 		fixed: false,
 		data: undefined,
-		closeButton: true,
+		closeButton: false,
 		fastIframe: true,
 		open: false,
 		reposition: true,
