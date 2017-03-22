@@ -5,6 +5,17 @@
     <body>
 {% include "banner.html" %}
         <div id="main_container" class="flex_horiz">
+            {% if not articles %}
+                <div class="section_item">
+                    <a href="/" title="Weee ! ">
+                        <img class="round_img shadowed" src="/static/sonovsite/dance.gif">
+                        <div class="caption">
+                            <h1>Retour</h1>
+                        </div>
+                    </a>
+                    <h3>J'ai rien trouvé !</h3>
+                </div>
+            {% else %}
                 {% for item in articles %}
                 <div class="section_item">
                     <a href="/article/view/{{item.slug}}" class="{{item.source_site}}" title="{{item.short_desc}}">
@@ -15,12 +26,12 @@
                     </a>
                     <h3>{{item.title}}</h3>
                     <div class="post_info">
-                    {{item.created_date.day}}-{{item.created_date.month}}-{{item.created_date.year}}<br>
+                    {{item.created_date.day}}-{{item.created_date.month}}-{{item.created_date.year}} par {{item.posted_by}}<br>
                     {% for tag in item.tags.all %}<a class="music_tag_dark" href="/sbytag/{{tag.pk}}">{{tag.title}}</a> {% endfor %}
                     </div>
                 </div>
-
                 {% endfor %}
+            {% endif %}
         </div> <!-- end main_container -->
     </body>
 {% include "footer.html" %}
