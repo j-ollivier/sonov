@@ -12,7 +12,7 @@
                 {% if item.type == "son" %}
                 <div class="section_item">
                     <a href="{{item.colorbox_link}}" class="{{item.source_site}}" title="{{item.short_desc}}">
-                        <img class="round_img shadowed" src="{{item.thumbnail}}">
+                        <img class="round_img shadowed" src="/{{item.thumbnail}}">
                         <div class="caption">
                             <h1>Écouter</h1>
                         </div>
@@ -26,7 +26,7 @@
                 {% elif item.type == "article" %}
                 <div class="section_item">
                     <a href="/article/view/{{item.slug}}">
-                        <img class="round_img shadowed" src="{{item.thumbnail}}">
+                        <img class="round_img shadowed" src="/{{item.thumbnail}}">
                         <div class="caption">
                             <h1>Lire</h1>
                         </div>
@@ -40,7 +40,7 @@
                 {% elif item.type == "galery" %}
                 <div class="section_item">
                     <a href="/galery/view/{{item.slug}}">
-                        <img class="round_img shadowed" src="{{item.thumbnail}}">
+                        <img class="round_img shadowed" src="/{{item.thumbnail}}">
                         <div class="caption">
                             <h3>{{item.title}}</h3>
                             <h1>Découvrir</h1>

@@ -45,7 +45,7 @@ def SearchSite(request):
         context={
             'search': search_terms,
             'content': matchings_posts,
-            'search_visible': True,
+            'form': SearchAll(),
         }
     else:
         context={}
@@ -114,62 +114,92 @@ def ArticleIndex(request):
     '''
         Index of articles.
     '''
-    context={
-        'articles': Article.objects.filter(is_visible=True),
-        'all_tags': Tag.objects.all(),
-    }
-    template = loader.get_template('article_index.html')
-    return HttpResponse(template.render(context, request))
+    if request.method== 'GET':
+        context={
+            'articles': Article.objects.filter(is_visible=True),
+            'all_tags': Tag.objects.all(),
+            'form': SearchAll(),
+        }
+        template = loader.get_template('article_index.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def ArticleView(request, article_slug):
     '''
         View a single article.
     '''
-    context={
-        'article': Article.objects.select_related().get(
-            slug= article_slug),
-    }
-    template = loader.get_template('article_view.html')
-    return HttpResponse(template.render(context, request))
+    if request.method== 'GET':
+        context={
+            'article': Article.objects.select_related().get(
+                slug= article_slug),
+            'form': SearchAll(),
+        }
+        template = loader.get_template('article_view.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def GaleryIndex(request):
     '''
         Index of articles.
     '''
-    context={
-        'galeries': Galery.objects.select_related().filter(
-            is_visible=True),
-    }
-    template = loader.get_template('galery_index.html')
-    return HttpResponse(template.render(context, request))
+    if request.method== 'GET':
+        context={
+            'galeries': Galery.objects.select_related().filter(
+                is_visible=True),
+            'form': SearchAll(),
+        }
+        template = loader.get_template('galery_index.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def GaleryView(request, galery_pk):
     '''
         View a single galery and its content.
     '''
-    context={
-        'galery': Galery.objects.select_related().get(pk=galery_pk),
-    }
-    template = loader.get_template('galery_view.html')
-    return HttpResponse(template.render(context, request))
+    if request.method== 'GET':
+        context={
+            'galery': Galery.objects.select_related().get(pk=galery_pk),
+            'form': SearchAll(),
+        }
+        template = loader.get_template('galery_view.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def SonsIndex(request):
     '''
         Index of sounds.
     '''
-    sons= Son.objects.select_related().filter(
-        is_visible= True).order_by('created_date').reverse()
-    for son in sons:
-        son.colorbox_link= son.colorbox_link()
-    context={
-        'sons': sons,
-    }
-    template = loader.get_template('sons_index.html')
-    return HttpResponse(template.render(context, request))
+    if request.method== 'GET':
+        sons= Son.objects.select_related().filter(
+            is_visible= True).order_by('created_date').reverse()
+        for son in sons:
+            son.colorbox_link= son.colorbox_link()
+        context={
+            'sons': sons,
+            'form': SearchAll(),
+        }
+        template = loader.get_template('sons_index.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def SearchByTag(request, tag_searched):
@@ -178,43 +208,54 @@ def SearchByTag(request, tag_searched):
         and infintely faster than plain text search from frontpage so
         I didn't merge the two functionalities.
     '''
-    sons= [i for i in Son.objects.filter(
-        is_visible=True, 
-        tags__pk=tag_searched)]
-    for i in sons:
-        i.type= 'son'
-    articles= [i for i in Article.objects.filter(
-        is_visible=True, 
-        tags__pk=tag_searched)]
-    for i in articles:
-        i.type= 'article'
+    if request.method== 'GET':
+        sons= [i for i in Son.objects.filter(
+            is_visible=True, 
+            tags__pk=tag_searched)]
+        for i in sons:
+            i.type= 'son'
+        articles= [i for i in Article.objects.filter(
+            is_visible=True, 
+            tags__pk=tag_searched)]
+        for i in articles:
+            i.type= 'article'
 
-    # WIP
-    # galeries= [i for i in Galery.objects.select_related().filter(is_visible=True, tags__in=tag_searched).order_by('created_date').reverse()]
-    # for i in galeries:
-    #     i.type= 'galery'
+        # WIP
+        # galeries= [i for i in Galery.objects.select_related().filter(is_visible=True, tags__in=tag_searched).order_by('created_date').reverse()]
+        # for i in galeries:
+        #     i.type= 'galery'
 
-    # Merge the lists and order them by posted date
-    merged_items= sons + articles
-    sorted_items = sorted(merged_items, key=operator.attrgetter(
-        'created_date'), reverse=True)
-    context={
-        'tag_searched': tag_searched,
-        'content': sorted_items,
-        # 'galeries': galeries,
-    }
-    template = loader.get_template('search_by_tag.html')
-    return HttpResponse(template.render(context, request))
+        # Merge the lists and order them by posted date
+        merged_items= sons + articles
+        sorted_items = sorted(merged_items, key=operator.attrgetter(
+            'created_date'), reverse=True)
+        context={
+            'tag_searched': tag_searched,
+            'content': sorted_items,
+            'form': SearchAll(),
+        }
+        template = loader.get_template('search_by_tag.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def SiteInfo(request):
     '''
         View the website informations and random facts.
     '''
-    context={
-    }
-    template = loader.get_template('site_info.html')
-    return HttpResponse(template.render(context, request))
+    if request.method== 'GET':
+        context={
+            'form': SearchAll(),
+        }
+        template = loader.get_template('site_info.html')
+        return HttpResponse(template.render(context, request))
+    else: # if request.method== 'POST'
+        context= SearchSite(request) # returns context
+        template = loader.get_template('search_results.html')
+        return HttpResponse(template.render(context, request))
 
 #####################################################################
 def SoundcloudIframe(request, soundcloud_id):
