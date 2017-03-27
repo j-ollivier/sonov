@@ -57,9 +57,9 @@ class Son(models.Model):
         if self.source_site== 'soundcloud':
             complete_link= '/soundcloud_iframe/{}'.format(self.source_id_string)
         elif self.source_site== 'youtube':
-            complete_link= 'https://www.youtube.com/embed/{}?vq=hd720'.format(self.source_id_string, self.start_video_at)
+            complete_link= '/youtube_iframe/{}'.format(self.source_id_string)
         elif self.source_site== 'vimeo':
-            complete_link= 'https://player.vimeo.com/video/{}'.format(self.source_id_string)
+            complete_link= '/vimeo_iframe/{}'.format(self.source_id_string)
         return complete_link
 
 #####################################################################

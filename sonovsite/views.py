@@ -220,11 +220,6 @@ def SearchByTag(request, tag_searched):
         for i in articles:
             i.type= 'article'
 
-        # WIP
-        # galeries= [i for i in Galery.objects.select_related().filter(is_visible=True, tags__in=tag_searched).order_by('created_date').reverse()]
-        # for i in galeries:
-        #     i.type= 'galery'
-
         # Merge the lists and order them by posted date
         merged_items= sons + articles
         sorted_items = sorted(merged_items, key=operator.attrgetter(
@@ -266,4 +261,26 @@ def SoundcloudIframe(request, soundcloud_id):
         'soundcloud_id': soundcloud_id,
     }
     template = loader.get_template('soundcloud_iframe.html')
+    return HttpResponse(template.render(context, request))
+
+#####################################################################
+def YoutubeIframe(request, youtube_id):
+    '''
+        Test for embedding soundcloud within colorbox
+    '''
+    context={
+        'youtube_id': youtube_id,
+    }
+    template = loader.get_template('youtube_iframe.html')
+    return HttpResponse(template.render(context, request))
+
+#####################################################################
+def VimeoIframe(request, vimeo_id):
+    '''
+        Test for embedding soundcloud within colorbox
+    '''
+    context={
+        'vimeo_id': vimeo_id,
+    }
+    template = loader.get_template('vimeo_iframe.html')
     return HttpResponse(template.render(context, request))

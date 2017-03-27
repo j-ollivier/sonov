@@ -34,4 +34,6 @@ urlpatterns = [
     # site info
     url(r'^info/', views.SiteInfo),
     url(r'^soundcloud_iframe/(?P<soundcloud_id>\d+)', views.SoundcloudIframe),
+    url(r'^youtube_iframe/(?P<youtube_id>[\w-]+)', views.YoutubeIframe),
+    url(r'^vimeo_iframe/(?P<vimeo_id>\d+)', views.VimeoIframe),
 ]
