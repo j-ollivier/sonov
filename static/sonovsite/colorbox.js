@@ -58,9 +58,9 @@
 		retinaSuffix: '@2x.$1',
 
 		// internationalization
-		current: "image {current} of {total}",
-		previous: "previous",
-		next: "next",
+		current: "{current}/{total}",
+		previous: "Précédent",
+		next: "Suivant",
 		close: "close",
 		xhrError: "This content failed to load.",
 		imgError: "This image failed to load.",

@@ -1,0 +1,131 @@
+commit b4836c742023f363dfc6f84c98df47fc2cf0a1fd
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Tue Mar 28 12:50:03 2017 +0200
+
+    fixed typo
+
+commit 5cf440157ae6718b3bd14823d42bc52accc18531
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Tue Mar 28 12:30:40 2017 +0200
+
+    added daily sound publishing crontjob
+
+commit a4139979f4f2f0f47288e74bc1aa9f545dde6a4a
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Mon Mar 27 13:55:24 2017 +0200
+
+    added custom iframes for every vid source, to enable options. Autoplay is on by default now
+
+commit 686e2ae14e164381fa8664ef3d0f035b5bb80041
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 18:58:33 2017 +0100
+
+    hotfix : sons template typo :'(
+
+commit b528dbc54d74254b8567498c3be5483ed96a97d2
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 14:56:10 2017 +0100
+
+    added information on the website
+
+commit 76ce118b14a8879480b4e92c80f3b3419a579c3b
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 13:31:41 2017 +0100
+
+    colorbox is prettier on mobile.
+
+commit 20536c9bc126e596ccfef36fac0caa033d24d74a
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 12:17:48 2017 +0100
+
+    changed frontpage item selection behaviour
+
+commit 76c51b58c735cc0ffca555c3f4571f63fe6e65e1
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 12:01:59 2017 +0100
+
+    prettier colorbox imho
+
+commit 0d0701ce2c5ac6a2b3a13d1ed37ee83b7c161e12
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 11:28:14 2017 +0100
+
+    site has now a proper mobile version.
+
+commit 89220490420448fe849568260180eb889549deeb
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 10:44:24 2017 +0100
+
+    dirty search bar global implementation
+
+commit 76a6d44b02ad462d1cbe7d80026e2df05d6bd31c
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Wed Mar 22 10:28:15 2017 +0100
+
+    changed backend of search bar
+
+commit 1d59bf4e128b105cc5009fcd1b48c7e9ff7957c8
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Tue Mar 21 10:17:28 2017 +0100
+
+    sonov now accepts soundcloud & vimeo
+
+commit bb06e78445f7a2ef273f9cdbf9b4d5933766d77a
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Mon Mar 20 13:15:07 2017 +0100
+
+    footer is done, templates tags are fixed
+
+commit 1bebbd118447237c1c501f2c6da962aed304b52f
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Mon Mar 20 12:42:48 2017 +0100
+
+    search functionality implemented + model fix
+
+commit d5d9f5da1fa5e2d3f802f2b84af3b270afb84382
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sun Mar 19 14:20:54 2017 +0100
+
+    fixed broken link on search_by_tag.html
+
+commit 01114a975a78b83103564dc3d1f3c05add02375d
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sun Mar 19 14:09:07 2017 +0100
+
+    Fixed Son obj visibility in index, added more info to admin on obj
+
+commit 44ebe7079cef8240711894e8ee9677b6c1738ca6
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sun Mar 19 14:02:48 2017 +0100
+
+    Fixed broken tag links on several templates
+
+commit a447861ac16fc2f994d7766192d5ad49147038a0
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sun Mar 19 13:58:49 2017 +0100
+
+    More items on frontpage
+
+commit 19cf690e26d6657df8e26ec7b1dd9dd48483aaf5
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sun Mar 19 13:57:24 2017 +0100
+
+    fixed bad ordering of last sounds
+
+commit 5ed0bb55dabbab0964b1982ba90f2261b6b599b7
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sat Mar 18 17:57:50 2017 +0100
+
+    moved item titles out of the captions tag
+
+commit 375974cc2b5a2a350d050565d7a4eb47f89033e1
+Author: sighill <voxclam.indes@gmail.com>
+Date:   Sat Mar 18 16:54:17 2017 +0100
+
+    initial commit, 1st working version
+
+commit e5005a5349996ffb4b0366af5c7d7a83de7ba61e
+Author: Sighill <voxclam.sighil@gmail.com>
+Date:   Sat Mar 18 16:51:05 2017 +0100
+
+    Initial commit
