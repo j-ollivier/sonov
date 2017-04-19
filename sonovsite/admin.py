@@ -9,8 +9,8 @@ class AdminArticle(admin.ModelAdmin):
 admin.site.register(Article, AdminArticle)
 
 class AdminSon(admin.ModelAdmin):
-    list_display =['uid', 'is_visible', 'title', 'created_date']
-    ordering = ['uid']
+    list_display =['uid', 'is_visible', 'title', 'created_date', 'posted_by']
+    ordering = ['created_date']
 admin.site.register(Son, AdminSon)
 
 class AdminTag(admin.ModelAdmin):
