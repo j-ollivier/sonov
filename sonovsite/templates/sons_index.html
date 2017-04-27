@@ -15,7 +15,7 @@
                 </a>
                 <h3>{{item.title}}</h3>
                 <div class="post_info">
-                {{item.created_date.day}}-{{item.created_date.month}}-{{item.created_date.year}}<br>
+                {{item.created_date.day}}-{{item.created_date.month}}-{{item.created_date.year}} par {{item.posted_by}}<br>
                 {% for tag in item.tags.all %}<a class="music_tag_dark" href="/sbytag/{{tag.pk}}">{{tag.title}}</a> {% endfor %}
                 </div>
             </div>
