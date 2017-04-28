@@ -190,7 +190,7 @@ def SonsIndex(request):
         sons_list= Son.objects.select_related().filter(
             is_visible= True).order_by('created_date').reverse()
         # paginate sons
-        sons_paginated= Paginator(sons_list, 9)
+        sons_paginated= Paginator(sons_list, 12)
         page = request.GET.get('page')
         try:
             sons= sons_paginated.page(page)
