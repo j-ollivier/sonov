@@ -5,6 +5,7 @@ import operator #for sorting objects from different tables in one aggregated lis
 from .forms import SearchAll
 from django.shortcuts import render_to_response
 from django.template import RequestContext
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 #####################################################################
 def SearchSite(request):
@@ -186,8 +187,19 @@ def SonsIndex(request):
         Index of sounds.
     '''
     if request.method== 'GET':
-        sons= Son.objects.select_related().filter(
+        sons_list= Son.objects.select_related().filter(
             is_visible= True).order_by('created_date').reverse()
+        # paginate sons
+        sons_paginated= Paginator(sons_list, 9)
+        page = request.GET.get('page')
+        try:
+            sons= sons_paginated.page(page)
+        except PageNotAnInteger:
+            # If page is not an integer, deliver first page.
+            sons = sons_paginated.page(1)
+        except EmptyPage:
+            # If page is out of range (e.g. 9999), deliver last page of results.
+            sons = sons_paginated.page(paginator.num_pages)
         for son in sons:
             son.colorbox_link= son.colorbox_link()
         context={
